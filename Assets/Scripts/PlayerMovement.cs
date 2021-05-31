@@ -17,7 +17,7 @@ public class PlayerMovement : MonoBehaviour
     Vector3 direction;
 
     //Animation
-    public Animator animator;
+    //public Animator animator;
     
     //Not sure about this// Getting playerstate from gamemanager
     public GameManager.PlayerState playerState;
@@ -52,7 +52,7 @@ public class PlayerMovement : MonoBehaviour
             //transform.position += m_Rigidbody.AddForce(transform.forward * movementSpeed);
             //transform.position += Vector3.forward * movementSpeed * Time.fixedDeltaTime;
             m_Rigidbody.velocity = Vector3.forward * movementSpeed;
-            animator.SetTrigger("GameStart"); // start the animation
+            //animator.SetTrigger("GameStart"); // start the animation
             //m_Rigidbody.AddForce(Vector3.forward * movementSpeed * Time.fixedDeltaTime);
         
             if (isTouching)
