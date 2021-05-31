@@ -5,13 +5,9 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     
-    public GameObject changedSphere; // after finishLine our character will be sphere
     public GameObject playerMesh;
-    public bool isSphere;
     public float diamondPickUpScaleRate;
-    
-    public float sphereFinishSize;
-    public float sphereScaleDownSpeed;
+
 
     [Header("End Game Particle")]
     [SerializeField] public GameObject endGameParticle;
@@ -22,37 +18,12 @@ public class Player : MonoBehaviour
     }
     private void Update()
     {
-
-        
-        
-        if (isSphere)
-        {
-            //Rotates to give feeling
-            changedSphere.transform.Rotate(4,0,0);
-            
-            //If its smaller than desired size
-            if (gameObject.transform.localScale.x <= sphereFinishSize)
-            {
-                GameManager.inst.playerState = GameManager.PlayerState.Finish;
-                foreach (Transform child in endGameParticle.transform)
-                {
-                    child.GetComponent<ParticleSystem>().Play();
-                }
-            }
-            else 
-            {
-                //Else it keeps shrinking
-                gameObject.transform.localScale -= Vector3.one * sphereScaleDownSpeed;
-            }
-        }
-
     }
 
     private void OnTriggerEnter(Collider col)
     {
         if (col.gameObject.tag == "Finish")
         {
-            MakeSphere();
             Debug.Log("Character changed");
             //GameManager.inst.playerState = GameManager.PlayerState.Finish;
         }
@@ -72,15 +43,7 @@ public class Player : MonoBehaviour
         if (col.gameObject.tag == "4xZone")
         {
             GameManager.inst.bonusMultiplier = 4;
-        }
-        
-        // when player gets pixels our character will scale
-        if(col.gameObject.tag == "Pixel")
-        {
-            gameObject.transform.localScale += Vector3.one * diamondPickUpScaleRate;
-            Destroy(col.gameObject);
-        }
-        
+        }       
         if (col.gameObject.tag == "Obstacle")
         {
 
@@ -94,11 +57,7 @@ public class Player : MonoBehaviour
             {
                 gameObject.transform.localScale /= col.gameObject.GetComponent<ObstacleValue>().ObstacleDamage;
                 Destroy(col.gameObject);
-            }
-
-            
-                
-            
+            }        
             /*if (col.transform.localScale.x > gameObject.transform.localScale.x)
             {
                 Destroy(gameObject);
@@ -114,19 +73,6 @@ public class Player : MonoBehaviour
             }    */        
         }
     }
-    void MakeSphere()
-    {
-        //Disables the body mesh and collider
-        playerMesh.GetComponent<SkinnedMeshRenderer>().enabled = false;
-        gameObject.GetComponent<CapsuleCollider>().enabled = false;
-        
-        //Activates the sphere mesh and collider
-        changedSphere.GetComponent<SphereCollider>().enabled = true;
-        changedSphere.GetComponent<MeshRenderer>().enabled = true;
-        isSphere = true;
-
-    }
-
     void NextLevel()
     {
         nextLevelScreen.SetActive(true);
