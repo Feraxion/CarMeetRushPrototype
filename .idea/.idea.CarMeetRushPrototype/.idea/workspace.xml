@@ -16,10 +16,8 @@
   <component name="IdeDocumentHistory">
     <changedPaths>
       <option value="$PROJECT_DIR$/Assets/Scripts/PlayerMovement.cs" />
-      <option value="$PROJECT_DIR$/Assets/PartInfo.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/ObstacleRotator.cs" />
       <option value="$PROJECT_DIR$/Assets/PartPickUp.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Player.cs" />
+      <option value="$PROJECT_DIR$/Assets/PartInfo.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1tIZWVRZzQS94F3dPWGmf4vmmX8" />
@@ -65,7 +63,7 @@
       <option name="presentableId" value="Default" />
       <updated>1622458598413</updated>
       <workItem from="1622458617682" duration="1234000" />
-      <workItem from="1622535195551" duration="14191000" />
+      <workItem from="1622535195551" duration="4097000" />
     </task>
     <servers />
   </component>

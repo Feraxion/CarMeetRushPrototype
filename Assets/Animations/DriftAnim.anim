@@ -6,11 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-<<<<<<< HEAD:Assets/Animations/DriftAnim.anim
   m_Name: DriftAnim
-=======
-  m_Name: CarAnim
->>>>>>> 5df4686908478f0e46bdb99435f36db47b71d38c:Assets/Animations/CarAnim.anim
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0

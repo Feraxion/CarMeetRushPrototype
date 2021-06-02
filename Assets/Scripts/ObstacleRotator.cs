@@ -7,8 +7,6 @@ public class ObstacleRotator : MonoBehaviour
 {
     private Transform GO;
 
-    public bool xRotate, zRotate,yRotate;
-
     [SerializeField]
     private int RotateSpeed;
     // Start is called before the first frame update
@@ -27,25 +25,7 @@ public class ObstacleRotator : MonoBehaviour
     {
         //GO = gameObject.transform;
         //GO.transform.rotation.x  += 5f;
-        if (xRotate)
-        {
-            gameObject.transform.Rotate(RotateSpeed,0f,0f);
-
-        }
         
-        if (yRotate)
-        {
-            gameObject.transform.Rotate(0,RotateSpeed,0);
-
-        }
-
-        if (zRotate)
-        {
-            gameObject.transform.Rotate(0,0,RotateSpeed);
-
-        }
-        
-        
-        
+        gameObject.transform.Rotate(RotateSpeed,0f,0f);
     }
 }
