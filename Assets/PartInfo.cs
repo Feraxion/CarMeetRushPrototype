@@ -8,6 +8,8 @@ public class PartInfo : MonoBehaviour
     // 0 - boya // 1- spoiler ve ust body //2-tampon ve jant //3- repair // 4- motor // 5- turbo// 6- deccccccal 
     public int partID;
     public ParticleSystem partPickupParticle;
+    public ParticleSystem partPickupParticle2;
+
     public bool showedOnce;
     
     
@@ -25,6 +27,10 @@ public class PartInfo : MonoBehaviour
         if (gameObject.activeInHierarchy && !showedOnce)
         {
             partPickupParticle.Play();
+            if (partPickupParticle2 != null)
+            {
+                partPickupParticle2.Play();
+            }
             showedOnce = true;
         }
     }
