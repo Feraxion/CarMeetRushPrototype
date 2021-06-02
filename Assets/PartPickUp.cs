@@ -11,11 +11,9 @@ public class PartPickUp : MonoBehaviour
     public GameObject currentSpoiler;
     public GameObject currentRoofParts;
     public GameObject currentDeccal;
-<<<<<<< Updated upstream
     public GameObject currentEngine;
     public GameObject repair;
     public ParticleSystem carSmoke;
-=======
 
     public GameObject currentBumpers;
     public GameObject currentTires;
@@ -31,7 +29,6 @@ public class PartPickUp : MonoBehaviour
     public ParticleSystem carSmokeLevel1;
     public ParticleSystem carSmokeLevel2;
 
->>>>>>> Stashed changes
     
     
     // Start is called before the first frame update
@@ -53,12 +50,13 @@ public class PartPickUp : MonoBehaviour
             
             if (other.gameObject.GetComponent<PartInfo>().partID == 1)
             {
-<<<<<<< Updated upstream
                 currentSpoiler.gameObject.SetActive(true);
                 Destroy(other.gameObject);
-=======
                 // 0 - boya // 1- spoiler ve ust body //2-tampon ve jant //3- repair // 4- motor // 5- turbo// 6- deccccccal 
-
+                switch (other.gameObject.GetComponent<PartInfo>().partID)
+                {
+                    
+                
                 case 5:
                     if (exhaustUpgradedOnce)
                     {
@@ -116,7 +114,7 @@ public class PartPickUp : MonoBehaviour
                 default:
                     print ("Incorrect intelligence level.");
                     break;
->>>>>>> Stashed changes
+                }
             }
             
         }
