@@ -31,7 +31,7 @@ public class Player : MonoBehaviour
             pMov.enabled = false;
         //GameManager.inst.playerState = GameManager.PlayerState.Finish;
         //gameObject.GetComponent<Animator>().enabled = true;
-        anim.SetTrigger("CarDrift");
+            anim.SetBool("Drift", true);
 
         //anim.Play("CarAnim");
             
