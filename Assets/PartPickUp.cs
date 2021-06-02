@@ -48,10 +48,7 @@ public class PartPickUp : MonoBehaviour
         if (other.CompareTag("Part"))
         {
             
-            if (other.gameObject.GetComponent<PartInfo>().partID == 1)
-            {
-                currentSpoiler.gameObject.SetActive(true);
-                Destroy(other.gameObject);
+            
                 // 0 - boya // 1- spoiler ve ust body //2-tampon ve jant //3- repair // 4- motor // 5- turbo// 6- deccccccal 
                 switch (other.gameObject.GetComponent<PartInfo>().partID)
                 {
@@ -115,7 +112,7 @@ public class PartPickUp : MonoBehaviour
                     print ("Incorrect intelligence level.");
                     break;
                 }
-            }
+            
             
         }
     }

@@ -7,7 +7,8 @@ public class Player : MonoBehaviour
     
     public GameObject playerMesh;
     public float diamondPickUpScaleRate;
-
+    public Animator anim;
+    public PlayerMovement pMov;
 
     [Header("End Game Particle")]
     [SerializeField] public GameObject endGameParticle;
@@ -15,6 +16,9 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
+        anim = gameObject.GetComponent<Animator>();
+        //gameObject.GetComponent<Animator>().enabled = false;
+        pMov = GetComponent<PlayerMovement>();
     }
     private void Update()
     {
@@ -24,9 +28,14 @@ public class Player : MonoBehaviour
     {
         if (col.gameObject.tag == "Finish")
         {
-            Debug.Log("Character changed");
-            //GameManager.inst.playerState = GameManager.PlayerState.Finish;
-        }
+            pMov.enabled = false;
+        //GameManager.inst.playerState = GameManager.PlayerState.Finish;
+        //gameObject.GetComponent<Animator>().enabled = true;
+        anim.SetTrigger("CarDrift");
+
+        //anim.Play("CarAnim");
+            
+        } 
 
         if (col.gameObject.tag == "2xZone")
         {

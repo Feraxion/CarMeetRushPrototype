@@ -18,6 +18,8 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/PlayerMovement.cs" />
       <option value="$PROJECT_DIR$/Assets/PartPickUp.cs" />
       <option value="$PROJECT_DIR$/Assets/PartInfo.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/ObstacleRotator.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Player.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1tIZWVRZzQS94F3dPWGmf4vmmX8" />
