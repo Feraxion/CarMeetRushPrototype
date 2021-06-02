@@ -49,6 +49,7 @@ public class GameManager : MonoBehaviour
 
         inst = this;
         playerState = PlayerState.Prepare;
+        Application.targetFrameRate = 30;
     }
 
     private void Start()

@@ -29,11 +29,14 @@ public class Player : MonoBehaviour
         if (col.gameObject.tag == "Finish")
         {
             pMov.enabled = false;
+            gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
         //GameManager.inst.playerState = GameManager.PlayerState.Finish;
         //gameObject.GetComponent<Animator>().enabled = true;
-            anim.SetBool("Drift", true);
+           // anim.applyRootMotion = false;
+            //anim.SetBool("Drift", true);
+            anim.SetTrigger("Drifter");
 
-        //anim.Play("CarAnim");
+            //anim.Play("CarAnim");
             
         } 
 

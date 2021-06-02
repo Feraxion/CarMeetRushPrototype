@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    Rigidbody m_Rigidbody;
+    public Rigidbody m_Rigidbody;
     [Header("Speed Settings")]
     public float movementSpeed;
     public float controlSpeed;
@@ -54,7 +54,6 @@ public class PlayerMovement : MonoBehaviour
             m_Rigidbody.velocity = Vector3.forward * movementSpeed;
             //animator.SetTrigger("GameStart"); // start the animation
             //m_Rigidbody.AddForce(Vector3.forward * movementSpeed * Time.fixedDeltaTime);
-        
             if (isTouching)
             {
                 touchPosX += Input.GetAxis("Mouse X") * controlSpeed * Time.fixedDeltaTime;
