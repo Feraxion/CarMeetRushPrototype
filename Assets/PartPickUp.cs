@@ -11,6 +11,10 @@ public class PartPickUp : MonoBehaviour
     public GameObject currentSpoiler;
     public GameObject currentRoofParts;
     public GameObject currentDeccal;
+    public GameObject upgradedDeccal;
+    public GameObject currentWindows;
+    public GameObject repairedWindows;
+
     public GameObject currentEngine;
     public GameObject repair;
     public ParticleSystem carSmoke;
@@ -51,7 +55,14 @@ public class PartPickUp : MonoBehaviour
             
                 // 0 - boya // 1- spoiler ve ust body //2-tampon ve jant //3- repair // 4- motor // 5- turbo// 6- deccccccal 
                 switch (other.gameObject.GetComponent<PartInfo>().partID)
-                {
+                { 
+                    case 6:
+                        currentDeccal.gameObject.SetActive(false);
+                        upgradedDeccal.gameObject.SetActive(true);
+                        Destroy(other.gameObject);
+
+                        GetComponent<PlayerMovement>().movementSpeed += 0.2f;
+                        break;
                     
                 
                 case 5:
@@ -60,6 +71,7 @@ public class PartPickUp : MonoBehaviour
                         carSmokeLevel1.gameObject.SetActive(false);
                         carSmokeLevel2.gameObject.SetActive(true);
                         Destroy(other.gameObject);
+                        GetComponent<PlayerMovement>().movementSpeed += 3;
 
                     }
                     else
@@ -67,32 +79,50 @@ public class PartPickUp : MonoBehaviour
                         carSmokeLevel0.gameObject.SetActive(false);
                         carSmokeLevel1.gameObject.SetActive(true);
                         Destroy(other.gameObject);
+                        exhaustUpgradedOnce = true;
+                        GetComponent<PlayerMovement>().movementSpeed += 0.2f;
 
 
                     }
 
-                    carBody.GetComponent<PlayerMovement>().movementSpeed += 2;
                     break;
                 case 4:
                     if (exhaustUpgradedOnce)
                     {
                         carSmokeLevel1.gameObject.SetActive(false);
                         carSmokeLevel2.gameObject.SetActive(true);
+                        repair.gameObject.SetActive(false);
+
                         Destroy(other.gameObject);
+                        
+                        GetComponent<PlayerMovement>().movementSpeed += 3;
+
 
                     }
                     else
                     {
                         carSmokeLevel0.gameObject.SetActive(false);
                         carSmokeLevel1.gameObject.SetActive(true);
+                        repair.gameObject.SetActive(false);
+                        exhaustUpgradedOnce = true;
+
+
                         Destroy(other.gameObject);
+                        GetComponent<PlayerMovement>().movementSpeed += 0.2f;
+
+                        
 
                     }
-                    carBody.GetComponent<PlayerMovement>().movementSpeed += 2;
 
                     break;
                 case 3:
                     
+                    currentWindows.gameObject.SetActive(false);
+                    repairedWindows.gameObject.SetActive(true);
+                    repair.gameObject.SetActive(false);
+                    Destroy(other.gameObject);
+
+                    GetComponent<PlayerMovement>().movementSpeed += 0.2f;
                     break;
                 case 2:
                     currentBumpers.gameObject.SetActive(true);

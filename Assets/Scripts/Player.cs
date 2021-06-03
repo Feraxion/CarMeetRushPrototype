@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
     public float diamondPickUpScaleRate;
     public Animator anim;
     public PlayerMovement pMov;
+    public Camera finishCam;
 
     [Header("End Game Particle")]
     [SerializeField] public GameObject endGameParticle;
@@ -23,8 +24,12 @@ public class Player : MonoBehaviour
     private void Update()
     {
     }
+    
+ 
+   
 
-    private void OnTriggerEnter(Collider col)
+
+    public void OnTriggerEnter(Collider col)
     {
         if (col.gameObject.tag == "Finish")
         {
@@ -35,6 +40,10 @@ public class Player : MonoBehaviour
            // anim.applyRootMotion = false;
             //anim.SetBool("Drift", true);
             anim.SetTrigger("Drifter");
+            
+            StartCoroutine(ExampleCoroutine());
+
+            //3 saniyelik coroutine
 
             //anim.Play("CarAnim");
             
@@ -89,5 +98,16 @@ public class Player : MonoBehaviour
     {
         nextLevelScreen.SetActive(true);
         Destroy(this.gameObject);
+    }
+
+    IEnumerator ExampleCoroutine()
+    {
+        
+        //yield on a new YieldInstruction that waits for 5 seconds.
+        yield return new WaitForSeconds(3);
+
+        Camera.main.enabled = false;
+        finishCam.gameObject.SetActive(true);
+
     }
 }

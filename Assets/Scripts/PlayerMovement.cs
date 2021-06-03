@@ -38,6 +38,18 @@ public class PlayerMovement : MonoBehaviour
         if (playerState == GameManager.PlayerState.Playing)
         {
             GetInput();
+            GetComponent<ObstacleRotator>().enabled = false;
+            
+            var rotationVectorCar = transform.rotation.eulerAngles;
+            rotationVectorCar= Vector3.zero;
+            transform.rotation = Quaternion.Euler(rotationVectorCar);
+
+            //Makes camera rotation 0 for gameplay after menu view
+            var rotationVector = Camera.main.transform.rotation.eulerAngles;
+            rotationVector.y = 0;
+            Camera.main.transform.rotation = Quaternion.Euler(rotationVector);
+            
+            Camera.main.GetComponent<CameraFollow>().enabled = true;
 
         }
     }
