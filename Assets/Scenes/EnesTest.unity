@@ -723,6 +723,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 283211885}
   m_CullTransparentMesh: 0
+--- !u!114 &290322274 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1565359407, guid: 20ea1415b8a6bc140bb3af28f1130921, type: 3}
+  m_PrefabInstance: {fileID: 1565359391}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e011c27fe24181946b31c1ec7261bf9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &314303335
 GameObject:
   m_ObjectHideFlags: 0
@@ -828,6 +839,7 @@ GameObject:
   - component: {fileID: 347208727}
   - component: {fileID: 347208731}
   - component: {fileID: 347208730}
+  - component: {fileID: 347208732}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -894,7 +906,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 347208726}
   m_LocalRotation: {x: 0.037556674, y: -0.9215584, z: 0.12080756, w: 0.36704943}
-  m_LocalPosition: {x: 0.57, y: 3.65, z: 28.03}
+  m_LocalPosition: {x: 4.54, y: 4.29, z: 28}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -949,6 +961,21 @@ MonoBehaviour:
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
+--- !u!114 &347208732
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 347208726}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e928e969b44c93349b921b182e3286a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 1565359397}
+  smoothSpeed: 0.125
+  offset: {x: 3.61, y: 3.13, z: 4.42}
 --- !u!198 &377370942 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 5298167327394312665, guid: 20ea1415b8a6bc140bb3af28f1130921, type: 3}
@@ -2514,6 +2541,8 @@ MonoBehaviour:
   m_Rigidbody: {fileID: 0}
   movementSpeed: 25
   controlSpeed: 15
+  turningRate: 30
+  getReadyToStart: 0
   isTouching: 0
   playerState: 0
 --- !u!114 &1264594272
@@ -3207,13 +3236,25 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1565359407, guid: 20ea1415b8a6bc140bb3af28f1130921, type: 3}
+      propertyPath: turningRate
+      value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: 1565359407, guid: 20ea1415b8a6bc140bb3af28f1130921, type: 3}
+      propertyPath: movementSpeed
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 2113510281, guid: 20ea1415b8a6bc140bb3af28f1130921, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4889731566593843169, guid: 20ea1415b8a6bc140bb3af28f1130921, type: 3}
       propertyPath: m_RootOrder
       value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4889731566593843169, guid: 20ea1415b8a6bc140bb3af28f1130921, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.74
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4889731566593843169, guid: 20ea1415b8a6bc140bb3af28f1130921, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3600,9 +3641,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 476337699}
-        m_TargetAssemblyTypeName: MenuUI, Assembly-CSharp
-        m_MethodName: StartGame
+      - m_Target: {fileID: 290322274}
+        m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
+        m_MethodName: SetBlendedEulerAngles
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

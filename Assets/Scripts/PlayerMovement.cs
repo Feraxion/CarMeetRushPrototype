@@ -8,7 +8,9 @@ public class PlayerMovement : MonoBehaviour
     [Header("Speed Settings")]
     public float movementSpeed;
     public float controlSpeed;
-    
+    public float turningRate = 30f; 
+    private Quaternion _targetRotation = Quaternion.identity;
+    public bool getReadyToStart;
 
     //Touch settings
     [Header("Touch Settings")]
@@ -46,10 +48,15 @@ public class PlayerMovement : MonoBehaviour
 
             //Makes camera rotation 0 for gameplay after menu view
             var rotationVector = Camera.main.transform.rotation.eulerAngles;
-            rotationVector.y = 0;
-            Camera.main.transform.rotation = Quaternion.Euler(rotationVector);
+            //rotationVector.y = 0;
+            rotationVector.x = 0f;
+            rotationVector.y = 5f;
+            rotationVector.z = -8.5f;
             
-            Camera.main.GetComponent<CameraFollow>().enabled = true;
+            Camera.main.GetComponent<NewCameraFollow>().offset = rotationVector;
+            //Camera.main.transform.rotation = Quaternion.Euler(rotationVector);
+            
+            //Camera.main.GetComponent<CameraFollow>().enabled = true; 5 ve -8.5 y z
 
         }
     }
@@ -69,12 +76,42 @@ public class PlayerMovement : MonoBehaviour
             if (isTouching)
             {
                 touchPosX += Input.GetAxis("Mouse X") * controlSpeed * Time.fixedDeltaTime;
+                //transform.rotation = Q;
+                
             }
 
             transform.position = new Vector3(touchPosX, transform.position.y, transform.position.z);
         }
+
+        if (getReadyToStart)
+        {
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, _targetRotation, turningRate * Time.deltaTime);
+            
+            Vector3 cameraStartMovement = new Vector3(0f, 5.5f, 14f);
+            
+            Camera.main.transform.position = Vector3.MoveTowards(Camera.main.transform.position,cameraStartMovement,5 * Time.deltaTime);
+            
+            Camera.main.transform.LookAt(m_Rigidbody.gameObject.transform);
+            
+            if (transform.rotation.y == 0f)
+            {
+                getReadyToStart = false;
+                GameManager.inst.playerState = GameManager.PlayerState.Playing;
+                GameManager.inst.StartScreen.SetActive(false);
+            }
+
+        }
         
     }
+
+    public void SetBlendedEulerAngles()
+    {
+        _targetRotation = Quaternion.Euler(Vector3.zero);
+        getReadyToStart = true;
+
+    }
+    
+    
     //Testing Inputs
     void GetInput()
     {
