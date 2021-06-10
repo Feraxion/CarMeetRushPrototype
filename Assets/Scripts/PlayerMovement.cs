@@ -51,7 +51,7 @@ public class PlayerMovement : MonoBehaviour
             //rotationVector.y = 0;
             rotationVector.x = 0f;
             rotationVector.y = 10.7f;
-            rotationVector.z = -17f;
+            rotationVector.z = -12f;
             
             Camera.main.GetComponent<NewCameraFollow>().offset = rotationVector;
             //Camera.main.transform.rotation = Quaternion.Euler(rotationVector);
@@ -82,7 +82,7 @@ public class PlayerMovement : MonoBehaviour
 
             }
             
-            transform.position = new Vector3(touchPosX, transform.position.y, transform.position.z);
+            transform.position = new Vector3(touchPosX, 0, transform.position.z);
 
 
         }

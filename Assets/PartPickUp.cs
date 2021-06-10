@@ -120,6 +120,7 @@ public class PartPickUp : MonoBehaviour
                     currentBrokenFront.gameObject.SetActive(false);
                     currentRepairedFront.gameObject.SetActive(true);
                     repair.gameObject.SetActive(true);
+                    carSmoke.gameObject.SetActive(false);
                     Destroy(other.gameObject);
 
                     GetComponent<PlayerMovement>().movementSpeed += 0.2f;
