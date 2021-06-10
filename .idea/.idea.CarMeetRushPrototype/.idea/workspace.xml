@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="973339b7-6786-4dca-9544-201b60568d07" name="Default Changelist" comment="" />
+    <list default="true" id="973339b7-6786-4dca-9544-201b60568d07" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.CarMeetRushPrototype/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CarMeetRushPrototype/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PartPickUp.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PartPickUp.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/AybarsTest.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/AybarsTest.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerMovement.cs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -11,8 +16,8 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/NewCameraFollow.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/PartInfo.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/NewCameraFollow.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
@@ -20,9 +25,9 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Player.cs" />
       <option value="$PROJECT_DIR$/Assets/PartInfo.cs" />
-      <option value="$PROJECT_DIR$/Assets/PartPickUp.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/ObjectMovement.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/NewCameraFollow.cs" />
+      <option value="$PROJECT_DIR$/Assets/PartPickUp.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/PlayerMovement.cs" />
     </changedPaths>
   </component>
@@ -75,6 +80,7 @@
       <workItem from="1622704826082" duration="7557000" />
       <workItem from="1623223578048" duration="3963000" />
       <workItem from="1623235414250" duration="218000" />
+      <workItem from="1623311238784" duration="2834000" />
     </task>
     <servers />
   </component>

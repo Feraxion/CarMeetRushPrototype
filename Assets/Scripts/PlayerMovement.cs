@@ -50,8 +50,8 @@ public class PlayerMovement : MonoBehaviour
             var rotationVector = Camera.main.transform.rotation.eulerAngles;
             //rotationVector.y = 0;
             rotationVector.x = 0f;
-            rotationVector.y = 5f;
-            rotationVector.z = -8.5f;
+            rotationVector.y = 10.7f;
+            rotationVector.z = -17f;
             
             Camera.main.GetComponent<NewCameraFollow>().offset = rotationVector;
             //Camera.main.transform.rotation = Quaternion.Euler(rotationVector);
@@ -78,18 +78,24 @@ public class PlayerMovement : MonoBehaviour
                 touchPosX += Input.GetAxis("Mouse X") * controlSpeed * Time.fixedDeltaTime;
                 //transform.rotation = Q;
                 
-            }
+                
 
+            }
+            
             transform.position = new Vector3(touchPosX, transform.position.y, transform.position.z);
+
+
         }
 
         if (getReadyToStart)
         {
+            GetComponent<ObstacleRotator>().enabled = false;
+
             transform.rotation = Quaternion.RotateTowards(transform.rotation, _targetRotation, turningRate * Time.deltaTime);
             
-            Vector3 cameraStartMovement = new Vector3(0f, 5.5f, 14f);
+            Vector3 cameraStartMovement = new Vector3(5f, -1f, 0f);
             
-            Camera.main.transform.position = Vector3.MoveTowards(Camera.main.transform.position,cameraStartMovement,5 * Time.deltaTime);
+            Camera.main.transform.position = Vector3.MoveTowards(Camera.main.transform.position,cameraStartMovement,2 * Time.deltaTime);
             
             Camera.main.transform.LookAt(m_Rigidbody.gameObject.transform);
             

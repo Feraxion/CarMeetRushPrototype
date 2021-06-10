@@ -7,19 +7,17 @@ using UnityEngine;
 public class PartPickUp : MonoBehaviour
 {
 
-    public GameObject carBody;
+    public GameObject currentBrokenBody;
+    public GameObject upgradedBody;
     public GameObject currentSpoiler;
-    public GameObject currentRoofParts;
     public GameObject currentDeccal;
     public GameObject upgradedDeccal;
-    public GameObject currentWindows;
-    public GameObject repairedWindows;
+    public GameObject currentBrokenFront;
+    public GameObject currentRepairedFront;
 
-    public GameObject currentEngine;
     public GameObject repair;
     public ParticleSystem carSmoke;
 
-    public GameObject currentBumpers;
     public GameObject currentTires;
     public GameObject currentTires2;
     public GameObject currentTires3;
@@ -91,7 +89,7 @@ public class PartPickUp : MonoBehaviour
                     {
                         carSmokeLevel1.gameObject.SetActive(false);
                         carSmokeLevel2.gameObject.SetActive(true);
-                        repair.gameObject.SetActive(false);
+                        //repair.gameObject.SetActive(false);
 
                         Destroy(other.gameObject);
                         
@@ -103,7 +101,7 @@ public class PartPickUp : MonoBehaviour
                     {
                         carSmokeLevel0.gameObject.SetActive(false);
                         carSmokeLevel1.gameObject.SetActive(true);
-                        repair.gameObject.SetActive(false);
+                        //repair.gameObject.SetActive(false);
                         exhaustUpgradedOnce = true;
 
 
@@ -117,15 +115,16 @@ public class PartPickUp : MonoBehaviour
                     break;
                 case 3:
                     
-                    currentWindows.gameObject.SetActive(false);
-                    repairedWindows.gameObject.SetActive(true);
-                    repair.gameObject.SetActive(false);
+                    currentBrokenBody.gameObject.SetActive(false);
+                    upgradedBody.gameObject.SetActive(true);
+                    currentBrokenFront.gameObject.SetActive(false);
+                    currentRepairedFront.gameObject.SetActive(true);
+                    repair.gameObject.SetActive(true);
                     Destroy(other.gameObject);
 
                     GetComponent<PlayerMovement>().movementSpeed += 0.2f;
                     break;
                 case 2:
-                    currentBumpers.gameObject.SetActive(true);
                     currentTires.gameObject.SetActive(true);
                     currentTires2.gameObject.SetActive(true);
                     currentTires3.gameObject.SetActive(true);
@@ -135,7 +134,6 @@ public class PartPickUp : MonoBehaviour
                     break;
                 case 1:
                     currentSpoiler.gameObject.SetActive(true);
-                    currentRoofParts.gameObject.SetActive(true);
                     Destroy(other.gameObject);
                     break;
                 default:
