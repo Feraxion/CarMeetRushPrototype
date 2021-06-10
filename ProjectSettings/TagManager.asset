@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Diamond
   - Part
+  - Obstacle
   layers:
   - Default
   - TransparentFX
