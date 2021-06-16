@@ -5,6 +5,8 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public Rigidbody m_Rigidbody;
+    public Vector3 lastPos;
+    public Quaternion rotateAcceleration;
     [Header("Speed Settings")]
     public float movementSpeed;
     public float controlSpeed;
@@ -63,6 +65,12 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (playerState == GameManager.PlayerState.Prepare)
+        {
+            var rotationVectorCar = transform.rotation.eulerAngles;
+            rotationVectorCar= Vector3.zero;
+            transform.rotation = Quaternion.Euler(rotationVectorCar);
+        }
         //Start game if in Playing State
         if (playerState == GameManager.PlayerState.Playing)
         {
@@ -78,13 +86,42 @@ public class PlayerMovement : MonoBehaviour
                 touchPosX += Input.GetAxis("Mouse X") * controlSpeed * Time.fixedDeltaTime;
                 //transform.rotation = Q;
                 
+
                 
+                
+                    
+                
+                              
 
             }
             
+            //lastPos.x = transform.position.x;
+
+            
             transform.position = new Vector3(touchPosX, 0, transform.position.z);
+            
 
+            /*
+            if (lastPos.x > transform.position.x)
+            {
+                transform.Rotate(0,-1,0,Space.Self);
+            }
 
+            if (lastPos.x < transform.position.x)
+            {
+                transform.Rotate(0,1,0,Space.Self);
+            }
+
+            rotateAcceleration = transform.rotation;
+            rotateAcceleration.y = Mathf.Clamp(transform.rotation.y, -10, 10);
+            transform.rotation = rotateAcceleration;
+            
+            if (lastPos.x == transform.position.x)
+            {
+                transform.Rotate(0,-1 * (transform.rotation.y),0,Space.Self);
+
+            }*/
+            
         }
 
         if (getReadyToStart)

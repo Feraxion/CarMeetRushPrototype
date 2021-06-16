@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -35,6 +36,7 @@ public class Player : MonoBehaviour
         {
             pMov.enabled = false;
             gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
+            //gameObject.transform.rotation = Vector3.zero;
         //GameManager.inst.playerState = GameManager.PlayerState.Finish;
         //gameObject.GetComponent<Animator>().enabled = true;
            // anim.applyRootMotion = false;
@@ -69,31 +71,23 @@ public class Player : MonoBehaviour
         {
 
             
-            if (col.gameObject.GetComponent<ObstacleValue>().ObstacleScale > gameObject.transform.localScale.x)
-            {
+            
                 Destroy(gameObject);
                 GameManager.inst.playerState = GameManager.PlayerState.Died;
-            }
-            else
-            {
-                gameObject.transform.localScale /= col.gameObject.GetComponent<ObstacleValue>().ObstacleDamage;
-                Destroy(col.gameObject);
-            }        
-            /*if (col.transform.localScale.x > gameObject.transform.localScale.x)
-            {
-                Destroy(gameObject);
-                GameManager.inst.playerState = GameManager.PlayerState.Died;
-
-                // Add gameover screen
-            }
-            else
-            {
-                gameObject.transform.localScale /= 1.5f;
-                Destroy(col.gameObject);
-                //MAYBE ADD SOME SHATTERED VERSIONS
-            }    */        
+                
         }
     }
+
+    private void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.tag == "Obstacle")
+        {
+
+            Destroy(gameObject);
+            GameManager.inst.playerState = GameManager.PlayerState.Died;
+                
+        }    }
+
     void NextLevel()
     {
         nextLevelScreen.SetActive(true);
@@ -108,6 +102,10 @@ public class Player : MonoBehaviour
 
         Camera.main.enabled = false;
         finishCam.gameObject.SetActive(true);
+        endGameParticle.gameObject.SetActive(true);
+        yield return new WaitForSeconds(3);
+        GameManager.inst.FinishScreen.SetActive(true);
+
 
     }
 }

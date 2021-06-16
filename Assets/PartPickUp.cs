@@ -51,7 +51,7 @@ public class PartPickUp : MonoBehaviour
         {
             
             
-                // 0 - boya // 1- spoiler ve ust body //2-tampon ve jant //3- repair // 4- motor // 5- turbo// 6- deccccccal 
+                // 0 - boya // 1- spoiler ve ust body //2-tampon ve jant //3- repair // 4- motor // 5- turbo// 6- dzeccccccal 
                 switch (other.gameObject.GetComponent<PartInfo>().partID)
                 { 
                     case 6:
