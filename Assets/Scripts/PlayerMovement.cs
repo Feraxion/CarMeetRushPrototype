@@ -13,12 +13,16 @@ public class PlayerMovement : MonoBehaviour
     public float turningRate = 30f; 
     private Quaternion _targetRotation = Quaternion.identity;
     public bool getReadyToStart;
+    public bool cameraSet;
+    public GameObject centerOfMass;
 
+    public SimpleCarController carController;
     //Touch settings
     [Header("Touch Settings")]
     [SerializeField] bool isTouching;
     float touchPosX;
     Vector3 direction;
+    public float speedLimit;
 
     //Animation
     //public Animator animator;
@@ -29,7 +33,8 @@ public class PlayerMovement : MonoBehaviour
     private void Awake()
     {
         m_Rigidbody = GetComponent<Rigidbody>();
-
+        m_Rigidbody.centerOfMass = centerOfMass.transform.position;
+        m_Rigidbody.ResetInertiaTensor();
 
     }
 
@@ -42,24 +47,42 @@ public class PlayerMovement : MonoBehaviour
         if (playerState == GameManager.PlayerState.Playing)
         {
             GetInput();
-            GetComponent<ObstacleRotator>().enabled = false;
+           // GetComponent<ObstacleRotator>().enabled = false;
             
-            var rotationVectorCar = transform.rotation.eulerAngles;
-            rotationVectorCar= Vector3.zero;
-            transform.rotation = Quaternion.Euler(rotationVectorCar);
+           // var rotationVectorCar = transform.rotation.eulerAngles;
+           //  rotationVectorCar= Vector3.zero;
+           //  transform.rotation = Quaternion.Euler(rotationVectorCar);
 
+           
+           
             //Makes camera rotation 0 for gameplay after menu view
-            var rotationVector = Camera.main.transform.rotation.eulerAngles;
-            //rotationVector.y = 0;
-            rotationVector.x = 0f;
-            rotationVector.y = 10.7f;
-            rotationVector.z = -12f;
+            if (!cameraSet)
+            {
+                var rotationVector = Camera.main.transform.rotation.eulerAngles;
+                //rotationVector.y = 0;
+                rotationVector.x = 0f;
+                rotationVector.y = 10.7f;
+                rotationVector.z = -12f;
             
-            Camera.main.GetComponent<NewCameraFollow>().offset = rotationVector;
+                Camera.main.GetComponent<NewCameraFollow>().offset = rotationVector;
+                cameraSet = true;
+            }
+
+            lastPos = m_Rigidbody.velocity;
+
+            lastPos.z = Mathf.Clamp(m_Rigidbody.velocity.z, 0, speedLimit);
+
+            m_Rigidbody.velocity = lastPos;
+
             //Camera.main.transform.rotation = Quaternion.Euler(rotationVector);
-            
+
             //Camera.main.GetComponent<CameraFollow>().enabled = true; 5 ve -8.5 y z
 
+        }
+
+        if (playerState == GameManager.PlayerState.Finish)
+        {
+            m_Rigidbody.velocity = Vector3.zero;
         }
     }
 
@@ -78,27 +101,27 @@ public class PlayerMovement : MonoBehaviour
             //m_Rigidbody.AddForce(transform.forward * movementSpeed);
             //transform.position += m_Rigidbody.AddForce(transform.forward * movementSpeed);
             //transform.position += Vector3.forward * movementSpeed * Time.fixedDeltaTime;
-            m_Rigidbody.velocity = Vector3.forward * movementSpeed;
+            /////////////m_Rigidbody.velocity = Vector3.forward * movementSpeed;
             //animator.SetTrigger("GameStart"); // start the animation
             //m_Rigidbody.AddForce(Vector3.forward * movementSpeed * Time.fixedDeltaTime);
             if (isTouching)
             {
-                touchPosX += Input.GetAxis("Mouse X") * controlSpeed * Time.fixedDeltaTime;
+                //touchPosX += Input.GetAxis("Mouse X") * controlSpeed * Time.fixedDeltaTime;
                 //transform.rotation = Q;
-                
 
-                
-                
-                    
-                
-                              
+
+
+               // carController.m_horizontalInput = Input.GetAxis("Mouse X")* controlSpeed * Time.fixedDeltaTime;
+
+
+
 
             }
             
             //lastPos.x = transform.position.x;
 
             
-            transform.position = new Vector3(touchPosX, 0, transform.position.z);
+            //transform.position = new Vector3(touchPosX, 0, transform.position.z);
             
 
             /*
@@ -124,7 +147,7 @@ public class PlayerMovement : MonoBehaviour
             
         }
 
-        if (getReadyToStart)
+        /*if (getReadyToStart)
         {
             GetComponent<ObstacleRotator>().enabled = false;
 
@@ -143,16 +166,16 @@ public class PlayerMovement : MonoBehaviour
                 GameManager.inst.StartScreen.SetActive(false);
             }
 
-        }
+        }*/
         
     }
 
-    public void SetBlendedEulerAngles()
-    {
-        _targetRotation = Quaternion.Euler(Vector3.zero);
-        getReadyToStart = true;
-
-    }
+    // public void SetBlendedEulerAngles()
+    // {
+    //     _targetRotation = Quaternion.Euler(Vector3.zero);
+    //     getReadyToStart = true;
+    //
+    // }
     
     
     //Testing Inputs

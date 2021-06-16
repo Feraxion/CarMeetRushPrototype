@@ -38,7 +38,8 @@ public class Player : MonoBehaviour
             gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
             //gameObject.transform.rotation = Vector3.zero;
         //GameManager.inst.playerState = GameManager.PlayerState.Finish;
-        //gameObject.GetComponent<Animator>().enabled = true;
+        gameObject.GetComponent<SimpleCarController>().enabled = false;
+            gameObject.GetComponent<Animator>().enabled = true;
            // anim.applyRootMotion = false;
             //anim.SetBool("Drift", true);
             anim.SetTrigger("Drifter");
