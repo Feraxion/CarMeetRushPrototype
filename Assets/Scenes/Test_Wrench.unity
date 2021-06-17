@@ -61404,7 +61404,11 @@ MonoBehaviour:
   controlSpeed: 12
   turningRate: 75
   getReadyToStart: 0
+  cameraSet: 0
+  centerOfMass: {fileID: 0}
+  carController: {fileID: 0}
   isTouching: 0
+  speedLimit: 0
   playerState: 0
 --- !u!114 &3448529476145863385
 MonoBehaviour:
@@ -61682,7 +61686,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3285797444346968169}
-  m_Mesh: {fileID: 2657553093839113902, guid: ec3a1a31d0a7d644fac018260a54eb16, type: 3}
+  m_Mesh: {fileID: -1708858604627562256, guid: ab250367bf8827f40b80d296bbeeb404, type: 3}
 --- !u!23 &4706128844932353146
 MeshRenderer:
   m_ObjectHideFlags: 0
