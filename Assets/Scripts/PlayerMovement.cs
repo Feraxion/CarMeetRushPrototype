@@ -46,7 +46,7 @@ public class PlayerMovement : MonoBehaviour
         //Start game if in Playing State
         if (playerState == GameManager.PlayerState.Playing)
         {
-            GetInput();
+            //GetInput();
            // GetComponent<ObstacleRotator>().enabled = false;
             
            // var rotationVectorCar = transform.rotation.eulerAngles;
@@ -71,6 +71,9 @@ public class PlayerMovement : MonoBehaviour
             lastPos = m_Rigidbody.velocity;
 
             lastPos.z = Mathf.Clamp(m_Rigidbody.velocity.z, 0, speedLimit);
+            Vector3 xPos = transform.position;
+            xPos.x = Mathf.Clamp(xPos.x, -25, 13);
+            transform.position = xPos;
 
             m_Rigidbody.velocity = lastPos;
 
@@ -104,8 +107,8 @@ public class PlayerMovement : MonoBehaviour
             /////////////m_Rigidbody.velocity = Vector3.forward * movementSpeed;
             //animator.SetTrigger("GameStart"); // start the animation
             //m_Rigidbody.AddForce(Vector3.forward * movementSpeed * Time.fixedDeltaTime);
-            if (isTouching)
-            {
+            //if (isTouching)
+           // {
                 //touchPosX += Input.GetAxis("Mouse X") * controlSpeed * Time.fixedDeltaTime;
                 //transform.rotation = Q;
 
@@ -116,7 +119,7 @@ public class PlayerMovement : MonoBehaviour
 
 
 
-            }
+            //}
             
             //lastPos.x = transform.position.x;
 

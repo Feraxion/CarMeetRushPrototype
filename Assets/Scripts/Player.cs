@@ -32,7 +32,7 @@ public class Player : MonoBehaviour
 
     public void OnTriggerEnter(Collider col)
     {
-        if (col.gameObject.tag == "Finish")
+        if (col.gameObject.CompareTag("Finish"))
         {
             pMov.enabled = false;
             gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
@@ -52,23 +52,8 @@ public class Player : MonoBehaviour
             
         } 
 
-        if (col.gameObject.tag == "2xZone")
-        {
-            GameManager.inst.bonusMultiplier = 2;
-        }
         
-        
-        if (col.gameObject.tag == "3xZone")
-        {
-            GameManager.inst.bonusMultiplier = 3;
-        }
-        
-        
-        if (col.gameObject.tag == "4xZone")
-        {
-            GameManager.inst.bonusMultiplier = 4;
-        }       
-        if (col.gameObject.tag == "Obstacle")
+        if (col.gameObject.CompareTag("Obstacle"))
         {
 
             
@@ -81,7 +66,7 @@ public class Player : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        if (other.gameObject.tag == "Obstacle")
+        if (other.gameObject.CompareTag("Obstacle"))
         {
 
             Destroy(gameObject);
