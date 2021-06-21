@@ -49,7 +49,7 @@ public class GameManager : MonoBehaviour
 
         inst = this;
         playerState = PlayerState.Prepare;
-        Application.targetFrameRate = 30;
+        Application.targetFrameRate = 60;
     }
 
     private void Start()
@@ -100,7 +100,7 @@ public class GameManager : MonoBehaviour
     public void IncrementDiamond()
     {
         //Keeps it in temporary variable in case player dies before finishing
-        currentLevelDiamondCount++;
+        currentLevelDiamondCount += 10;
         diamondText.text = "" + (currentLevelDiamondCount + diamondCount) ;
     }
 

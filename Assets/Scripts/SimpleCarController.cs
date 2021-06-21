@@ -10,18 +10,57 @@ public class AxleInfo {
     public bool steering;
 }
      
-public class SimpleCarController : MonoBehaviour {
+public class SimpleCarController : MonoBehaviour
+{
+
+    public bool isTouching;
+    
     public void GetInput()
     {
-        m_horizontalInput = Input.GetAxis("Horizontal");
-        //m_verticalInput = Input.GetAxis("Vertical");
+        //m_horizontalInput = Input.GetAxis("Horizontal");
         
+        if (Input.GetMouseButton(0))
+        {
+            isTouching = true;
+        }
+        else
+        {
+            isTouching = false;
+        }
+        
+        if (isTouching)
+        {
+            m_horizontalInput += Input.GetAxis("Mouse X")  * Time.fixedDeltaTime;
+            //transform.rotation = Q;
+
+
+
+            // carController.m_horizontalInput = Input.GetAxis("Mouse X")* controlSpeed * Time.fixedDeltaTime;
+
+
+
+
+        }
+        else
+        {
+            if (m_horizontalInput > 0)
+            {
+                m_horizontalInput -= 0.1f;
+            }
+            
+            if (m_horizontalInput < 0)
+            {
+                m_horizontalInput += 0.1f;
+                
+            }
+        }
         
     }
 
     private void Steer()
     {
         m_steeringAngle = maxSteerAngle * m_horizontalInput ;
+        m_steeringAngle = Mathf.Clamp(m_steeringAngle, -60, 60);
         frontDriverW.steerAngle = m_steeringAngle;
         frontPassengerW.steerAngle = m_steeringAngle;
         carRotation = carBody.transform.rotation;
