@@ -2972,7 +2972,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 432, y: 1392.1}
+  m_AnchoredPosition: {x: 256.7, y: 1099}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &225795308
@@ -2995,10 +2995,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: New Text
+  m_text: 1000
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c2bf12a44d35b0841b2a4268ccb7cc4b, type: 2}
+  m_sharedMaterial: {fileID: -2661961400511506083, guid: c2bf12a44d35b0841b2a4268ccb7cc4b, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3022,14 +3022,14 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 64.18
+  m_fontSizeBase: 64.18
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 4
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -8447,6 +8447,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ST_Veh_Taxi_Z (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 8bc3a688f97fe2b4a81440353b279cfb, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8bc3a688f97fe2b4a81440353b279cfb, type: 3}
 --- !u!1 &632216960 stripped
@@ -10325,6 +10329,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ambo_mesh
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3b422d7c05d7ce44fb8747dbdb38f532, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3b422d7c05d7ce44fb8747dbdb38f532, type: 3}
 --- !u!1001 &734120772
@@ -10401,6 +10409,81 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 485261c069dddca47907ac8167dd9d79, type: 3}
   m_PrefabInstance: {fileID: 734120772}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &738643844
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 738643845}
+  - component: {fileID: 738643847}
+  - component: {fileID: 738643846}
+  m_Layer: 5
+  m_Name: Image
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &738643845
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 738643844}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 2.371, y: 2.371, z: 2.371}
+  m_Children: []
+  m_Father: {fileID: 1117529008}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 431, y: 1094}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &738643846
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 738643844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 13e18cc5f39469b48939882dc13cf6d9, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &738643847
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 738643844}
+  m_CullTransparentMesh: 0
 --- !u!1001 &741052840
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12647,6 +12730,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 8bc3a688f97fe2b4a81440353b279cfb, type: 3}
       propertyPath: m_Name
       value: ST_Veh_Taxi_Z
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 8bc3a688f97fe2b4a81440353b279cfb, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8bc3a688f97fe2b4a81440353b279cfb, type: 3}
@@ -15582,6 +15669,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 225795307}
+  - {fileID: 738643845}
   m_Father: {fileID: 1523855129}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -22027,6 +22115,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ST_Veh_Taxi_Z (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 8bc3a688f97fe2b4a81440353b279cfb, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8bc3a688f97fe2b4a81440353b279cfb, type: 3}
 --- !u!1 &1561433265 stripped
@@ -24719,6 +24811,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 4b61a51d1cffffc4b9d47ee837820120, type: 3}
       propertyPath: m_Name
       value: ST_Veh_Car_Green_Z (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 4b61a51d1cffffc4b9d47ee837820120, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4b61a51d1cffffc4b9d47ee837820120, type: 3}
